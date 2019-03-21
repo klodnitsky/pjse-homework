@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
   # VM hostname
   config.vm.hostname = "klodnitsky"
 
-  # IP addres
+  # IP address
   config.vm.network "public_network", ip: "192.168.43.77"
 
   # Route to private network
@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
     echo Installing development tools...
     sudo apt-get -y install gcc g++ make
 
-    echo Installin nginx...
+    echo Installing nginx...
     sudo apt-get -y install nginx
 
     echo Configure nginx default...
