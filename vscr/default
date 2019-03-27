@@ -1,7 +1,20 @@
 server {
         listen 80 default_server;
+        listen [::]:80 default_server;
 
+        server_name _;
+
+        # index.html fallback
         location / {
-			proxy_pass http://localhost:4200;
+                index index.html index.htm;
+                root /srv/app/dist/browser;
+                try_files $uri $uri/ index.html;
         }
+
+        # 404 redirect to index
+        error_page 404 /index.html;
+
+        # logging
+		access_log /var/log/nginx/access.log;
+		error_log /var/log/nginx/error.log warn;
 }
