@@ -39,5 +39,5 @@ sudo echo "0 * * * * sh /vagrant/vscr/rebuild.sh" >> mycron
 echo Installing new cron file
 sudo crontab mycron
 
-echo Reove mycron tmp file
+echo Remove mycron tmp file
 sudo rm mycron
