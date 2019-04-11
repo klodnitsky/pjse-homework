@@ -30,6 +30,13 @@ echo Installing Angular example app
 echo Please w8 up to 5 min...
 sudo npm i
 
+echo Building Angular example app
+echo Please w8 up to 5 min...
+sudo npm run build:prod:en
+
+echo Restarting nginx...
+sudo systemctl restart nginx
+
 echo Check and write cronjobs to mycron file
 sudo crontab -l > mycron
 
