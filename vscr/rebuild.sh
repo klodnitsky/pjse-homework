@@ -2,7 +2,12 @@
 
 cd /srv/app
 
-if [[ `git status --porcelain` ]]; then
+answer="Your branch is up to date with 'origin/master'."
+
+if [[ `git status | grep "is up to date"` == $answer ]]; then
+	echo "Cheked for updates"
+	echo "Nothing to do..."
+else
 	echo "New updates availiable"
 	echo "Get updates"
 	sudo git pull
@@ -11,7 +16,4 @@ if [[ `git status --porcelain` ]]; then
 	sudo npm run build:prod:en
 	echo "Restarting nginx..."
 	sudo systemctl restart nginx
-else
-	echo "Cheked for updates"
-	echo "Nothing to do..."
 fi
